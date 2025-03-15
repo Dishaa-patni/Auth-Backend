@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
+import authRoutes from './routes/auth.route.js'
 
 const app=express();
 
@@ -17,5 +18,6 @@ const connectToDb=()=>{
     .catch(err=>console.log(err));
 }
 
+app.use('/api/auth',authRoutes)
 connectToDb();
 app.listen(5000,()=>console.log("The server is running on port 5000"));
