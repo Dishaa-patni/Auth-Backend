@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import authRoutes from './routes/auth.route.js'
+import  formRoutes from './routes/form.route.js'
 
 const app=express();
 
@@ -19,5 +20,8 @@ const connectToDb=()=>{
 }
 
 app.use('/api/auth',authRoutes)
+app.use('/api/form',formRoutes)
 connectToDb();
 app.listen(5000,()=>console.log("The server is running on port 5000"));
+
+
